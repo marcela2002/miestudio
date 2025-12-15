@@ -1,9 +1,9 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>Mi Estudio🌸</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Mi Estudio 🌸</title>
 
   <style>
     body {
@@ -19,8 +19,21 @@
       border-radius: 18px;
       padding: 18px;
       margin: 12px auto;
-      max-width: 700px;
+      max-width: 720px;
       box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    h2 {
+      margin-top: 0;
+    }
+
+    select, textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 15px;
+      margin-top: 8px;
     }
 
     button {
@@ -30,19 +43,18 @@
       padding: 10px 16px;
       font-size: 16px;
       cursor: pointer;
-      margin-top: 8px;
+      margin-top: 10px;
+      margin-right: 6px;
     }
 
     button:hover {
       background: #FBE5F2;
     }
 
-    textarea {
-      width: 100%;
-      border-radius: 12px;
-      border: 1px solid #ddd;
-      padding: 10px;
-      font-size: 15px;
+    #resultado {
+      margin-top: 12px;
+      white-space: pre-line;
+      font-weight: bold;
     }
   </style>
 </head>
@@ -50,45 +62,52 @@
 <body>
 
   <div class="card">
-    <h2>🌸 Mi Estudio </h2>
+    <h2>🌸 Mi Estudio</h2>
 
+    <!-- Selector de carpetas -->
+    <label>📂 Elegir lista:</label>
+    <select id="selectorCarpeta" onchange="filtrarPorCarpeta()"></select>
+
+    <!-- Pregunta -->
     <p id="pregunta">Cargando…</p>
 
+    <!-- Respuesta -->
     <textarea id="respuesta" rows="3" placeholder="Escribe tu respuesta…"></textarea>
 
-    <br/>
+    <!-- Botones -->
+    <div>
+      <button onclick="comprobarRespuesta()">Verificar 💖</button>
+      <button onclick="nuevaPregunta()">Otra pregunta ⭐</button>
+    </div>
 
-    <button onclick="mostrarRespuesta()">Ver respuesta 💖</button>
-    <button onclick="nuevaPregunta()">Otra pregunta ⭐</button>
-
-    <p id="correcta" style="margin-top:10px;"></p>
+    <!-- Resultado -->
+    <div id="resultado"></div>
   </div>
 
 <script>
+/* =======================
+   VARIABLES PRINCIPALES
+   ======================= */
 let items = [];
+let itemsFiltrados = [];
 let actual = null;
 
+/* =======================
+   CARGAR JSON
+   ======================= */
 fetch("datos_estudio.json")
   .then(res => res.json())
   .then(data => {
     items = data.items || [];
+    itemsFiltrados = items;
+    cargarCarpetas();
     nuevaPregunta();
   });
 
-function nuevaPregunta() {
-  if (items.length === 0) {
-    document.getElementById("pregunta").innerText =
-      "No hay preguntas todavía.";
-    return;
-  }
-
-  actual = items[Math.floor(Math.random() * items.length)];
-  document.getElementById("pregunta").innerText = actual.pregunta;
-  document.getElementById("respuesta").value = "";
-  document.getElementById("correcta").innerText = "";
-}
-
-  function normalizar(texto) {
+/* =======================
+   NORMALIZAR TEXTO
+   ======================= */
+function normalizar(texto) {
   return texto
     .toLowerCase()
     .normalize("NFD")
@@ -97,36 +116,94 @@ function nuevaPregunta() {
     .trim();
 }
 
-  function mostrarRespuesta() {
-    if (!actual) return;
+/* =======================
+   DISTANCIA LEVENSHTEIN
+   ======================= */
+function distancia(a, b) {
+  const dp = Array.from({ length: a.length + 1 }, () =>
+    Array(b.length + 1).fill(0)
+  );
 
-    const escrita = normalizar(
-      document.getElementById("respuesta").value
-    );
-    const correcta = normalizar(actual.respuesta);
+  for (let i = 0; i <= a.length; i++) dp[i][0] = i;
+  for (let j = 0; j <= b.length; j++) dp[0][j] = j;
 
-    const salida = document.getElementById("correcta");
-
-    if (escrita === "") {
-      salida.innerText = "✏️ Escribe una respuesta primero";
-      return;
+  for (let i = 1; i <= a.length; i++) {
+    for (let j = 1; j <= b.length; j++) {
+      dp[i][j] = Math.min(
+        dp[i - 1][j] + 1,
+        dp[i][j - 1] + 1,
+        dp[i - 1][j - 1] + (a[i - 1] === b[j - 1] ? 0 : 1)
+      );
     }
-
-    if (escrita === correcta) {
-      salida.innerText = "✅ ¡Correcto! 💗";
-    } else {
-      salida.innerText =
-        "❌ Incorrecto\n💖 Respuesta correcta: " + actual.respuesta;
-    }
+  }
+  return dp[a.length][b.length];
 }
 
-  
+/* =======================
+   CARPETAS / LISTAS
+   ======================= */
+function cargarCarpetas() {
+  const select = document.getElementById("selectorCarpeta");
+  const carpetas = [...new Set(items.map(i => i.carpeta))];
 
-  
+  select.innerHTML = `<option value="">Todas</option>`;
+  carpetas.forEach(c => {
+    select.innerHTML += `<option value="${c}">${c}</option>`;
+  });
+}
+
+function filtrarPorCarpeta() {
+  const carpeta = document.getElementById("selectorCarpeta").value;
+  itemsFiltrados = carpeta
+    ? items.filter(i => i.carpeta === carpeta)
+    : items;
+  nuevaPregunta();
+}
+
+/* =======================
+   NUEVA PREGUNTA
+   ======================= */
+function nuevaPregunta() {
+  const resultado = document.getElementById("resultado");
+  resultado.innerText = "";
+
+  if (itemsFiltrados.length === 0) {
+    document.getElementById("pregunta").innerText =
+      "No hay preguntas en esta lista.";
+    return;
+  }
+
+  actual = itemsFiltrados[Math.floor(Math.random() * itemsFiltrados.length)];
+  document.getElementById("pregunta").innerText = actual.pregunta;
+  document.getElementById("respuesta").value = "";
+}
+
+/* =======================
+   COMPROBAR RESPUESTA
+   ======================= */
+function comprobarRespuesta() {
+  if (!actual) return;
+
+  const escrita = normalizar(
+    document.getElementById("respuesta").value
+  );
+  const correcta = normalizar(actual.respuesta);
+  const resultado = document.getElementById("resultado");
+
+  if (escrita === "") {
+    resultado.innerText = "✏️ Escribe una respuesta primero";
+    return;
+  }
+
+  if (distancia(escrita, correcta) <= 2) {
+    resultado.innerText = "✅ ¡Correcto! 💗";
+  } else {
+    resultado.innerText =
+      "❌ Incorrecto\n💖 Respuesta correcta: " + actual.respuesta;
+  }
+}
 </script>
 
 </body>
 </html>
-
-
 
