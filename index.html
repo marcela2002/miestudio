@@ -98,26 +98,26 @@ function nuevaPregunta() {
 }
 
   function mostrarRespuesta() {
-  if (!actual) return;
+    if (!actual) return;
 
-  const escrita = normalizar(
-    document.getElementById("respuesta").value
-  );
-  const correcta = normalizar(actual.respuesta);
+    const escrita = normalizar(
+      document.getElementById("respuesta").value
+    );
+    const correcta = normalizar(actual.respuesta);
 
-  const salida = document.getElementById("correcta");
+    const salida = document.getElementById("correcta");
 
-  if (escrita === "") {
-    salida.innerText = "✏️ Escribe una respuesta primero";
-    return;
-  }
+    if (escrita === "") {
+      salida.innerText = "✏️ Escribe una respuesta primero";
+      return;
+    }
 
-  if (escrita === correcta) {
-    salida.innerText = "✅ ¡Correcto! 💗";
-  } else {
-    salida.innerText =
-      "❌ Incorrecto\n💖 Respuesta correcta: " + actual.respuesta;
-  }
+    if (escrita === correcta) {
+      salida.innerText = "✅ ¡Correcto! 💗";
+    } else {
+      salida.innerText =
+        "❌ Incorrecto\n💖 Respuesta correcta: " + actual.respuesta;
+    }
 }
 
   
@@ -127,5 +127,6 @@ function nuevaPregunta() {
 
 </body>
 </html>
+
 
 
