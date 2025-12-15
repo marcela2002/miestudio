@@ -39,6 +39,16 @@
             "modo": "idioma",
             "carpeta": "General",
             "imagen": "assets/images/Skärmbild 2025-07-30 020344_1765842089256.png"
+        },
+        {
+            "pregunta": "e",
+            "respuesta": "e",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": "assets/images/Skärmbild 2025-08-10 070052_1765842384991.png"
         }
     ],
     "carpetas": [
