@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Mi Estudio🌸</title>
+
+  <style>
+    body {
+      font-family: "Comic Sans MS", "Nunito", sans-serif;
+      background: #E7F4FA;
+      color: #4A4A4A;
+      margin: 0;
+      padding: 16px;
+    }
+
+    .card {
+      background: #FFF8FC;
+      border-radius: 18px;
+      padding: 18px;
+      margin: 12px auto;
+      max-width: 700px;
+      box-shadow: 0 6px 16px rgba(0,0,0,0.06);
+    }
+
+    button {
+      background: #F7D8E8;
+      border: none;
+      border-radius: 14px;
+      padding: 10px 16px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 8px;
+    }
+
+    button:hover {
+      background: #FBE5F2;
+    }
+
+    textarea {
+      width: 100%;
+      border-radius: 12px;
+      border: 1px solid #ddd;
+      padding: 10px;
+      font-size: 15px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="card">
+    <h2>🌸 Mi Estudio Kawaii</h2>
+
+    <p id="pregunta">Cargando…</p>
+
+    <textarea id="respuesta" rows="3" placeholder="Escribe tu respuesta…"></textarea>
+
+    <br/>
+
+    <button onclick="mostrarRespuesta()">Ver respuesta 💖</button>
+    <button onclick="nuevaPregunta()">Otra pregunta ⭐</button>
+
+    <p id="correcta" style="margin-top:10px;"></p>
+  </div>
+
+<script>
+let items = [];
+let actual = null;
+
+fetch("datos_estudio.json")
+  .then(res => res.json())
+  .then(data => {
+    items = data.items || [];
+    nuevaPregunta();
+  });
+
+function nuevaPregunta() {
+  if (items.length === 0) {
+    document.getElementById("pregunta").innerText =
+      "No hay preguntas todavía.";
+    return;
+  }
+
+  actual = items[Math.floor(Math.random() * items.length)];
+  document.getElementById("pregunta").innerText = actual.pregunta;
+  document.getElementById("respuesta").value = "";
+  document.getElementById("correcta").innerText = "";
+}
+
+function mostrarRespuesta() {
+  if (!actual) return;
+  document.getElementById("correcta").innerText =
+    "💖 Respuesta correcta: " + actual.respuesta;
+}
+</script>
+
+</body>
+</html>
