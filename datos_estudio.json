@@ -59,6 +59,16 @@
             "modo": "idioma",
             "carpeta": "General",
             "imagen": ""
+        },
+        {
+            "pregunta": "test web",
+            "respuesta": "ok",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": ""
         }
     ],
     "carpetas": [
