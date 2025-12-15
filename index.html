@@ -62,6 +62,8 @@ button:hover {
   <select id="selector"></select>
 
   <p id="pregunta">Cargando…</p>
+  <img id="imagen" style="max-width:100%; border-radius:12px; display:none; margin-top:10px;">
+
 
   <textarea id="respuesta" rows="3" placeholder="Escribe tu respuesta…"></textarea>
 
@@ -135,6 +137,14 @@ function nueva() {
   }
   actual = filtrados[Math.floor(Math.random() * filtrados.length)];
   document.getElementById("pregunta").innerText = actual.pregunta;
+  const img = document.getElementById("imagen");
+  if (actual.imagen) {
+    img.src = actual.imagen;
+    img.style.display = "block";
+  } else {
+    img.style.display = "none";
+  }
+
   document.getElementById("respuesta").value = "";
 }
 
@@ -159,3 +169,4 @@ function verificar() {
 
 </body>
 </html>
+
