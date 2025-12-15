@@ -3,7 +3,7 @@
         {
             "pregunta": "hola",
             "respuesta": "hej",
-            "aciertos": 0,
+            "aciertos": 2,
             "fallos": 0,
             "idioma": "sv",
             "modo": "idioma",
@@ -29,6 +29,16 @@
             "modo": "idioma",
             "carpeta": "General",
             "imagen": "assets\\images\\Screenshot 2025-09-24 094025_1765836019471.png"
+        },
+        {
+            "pregunta": "y",
+            "respuesta": "si",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": "assets/images/Skärmbild 2025-07-30 020344_1765842089256.png"
         }
     ],
     "carpetas": [
