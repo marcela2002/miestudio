@@ -1,5 +1,26 @@
 {
-    "items": [],
+    "items": [
+        {
+            "pregunta": "hola",
+            "respuesta": "hej",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": ""
+        },
+        {
+            "pregunta": "jeje",
+            "respuesta": "jaja",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "Palabras1",
+            "imagen": ""
+        }
+    ],
     "carpetas": [
         "General",
         "Palabras1"
