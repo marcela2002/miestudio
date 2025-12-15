@@ -49,6 +49,16 @@
             "modo": "idioma",
             "carpeta": "General",
             "imagen": "assets/images/Skärmbild 2025-08-10 070052_1765842384991.png"
+        },
+        {
+            "pregunta": "bgggg",
+            "respuesta": "kkk",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": ""
         }
     ],
     "carpetas": [
