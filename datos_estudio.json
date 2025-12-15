@@ -19,6 +19,16 @@
             "modo": "idioma",
             "carpeta": "Palabras1",
             "imagen": ""
+        },
+        {
+            "pregunta": "que?",
+            "respuesta": "es",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": "assets\\images\\Screenshot 2025-09-24 094025_1765836019471.png"
         }
     ],
     "carpetas": [
