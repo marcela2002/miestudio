@@ -79,6 +79,16 @@
             "modo": "idioma",
             "carpeta": "General",
             "imagen": "assets/images/Skärmbild 2025-12-12 211822_1765843837791.png"
+        },
+        {
+            "pregunta": "ppp",
+            "respuesta": "aaa",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "General",
+            "imagen": "assets/images/Skärmbild 2025-12-03 200252_1765844634448.png"
         }
     ],
     "carpetas": [
