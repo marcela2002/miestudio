@@ -1,101 +1,162 @@
 {
     "items": [
         {
-            "pregunta": "hola",
-            "respuesta": "hej",
-            "aciertos": 2,
+            "pregunta": "imponer algo / encajarle algo a alguien (sin que quiera)\nEl vendedor intentó imponerme/encajarme un seguro caro que yo no necesitaba.",
+            "respuesta": "Säljaren försökte pracka på mig en dyr försäkring som jag inte behövde.",
+            "aciertos": 3,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "Svenska"
+        },
+        {
+            "pregunta": "descongelado/a\nEl pescado ya estaba descongelado cuando llegué a casa.",
+            "respuesta": "Fisken var redan tinad när jag kom hem.",
+            "aciertos": 3,
             "fallos": 0,
             "idioma": "sv",
             "modo": "idioma",
-            "carpeta": "General",
-            "imagen": ""
+            "carpeta": "Svenska"
         },
         {
-            "pregunta": "jeje",
-            "respuesta": "jaja",
+            "pregunta": "experiencias del pasado\nAprendo mucho de mis experiencias del pasado.",
+            "respuesta": "Jag lär mig mycket av mina tidigare erfarenheter.",
+            "aciertos": 5,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "Svenska"
+        },
+        {
+            "pregunta": "molesto, alterado, indignado, emocionalmente afectado\nMe puse tan alterado que tuve que salir un momento para tranquilizarme.",
+            "respuesta": "Jag blev så upprörd att jag var tvungen att gå ut en stund för att lugna ner mig.",
             "aciertos": 0,
             "fallos": 0,
             "idioma": "sv",
             "modo": "idioma",
-            "carpeta": "Palabras1",
-            "imagen": ""
+            "carpeta": "Svenska"
         },
         {
-            "pregunta": "que?",
-            "respuesta": "es",
-            "aciertos": 0,
+            "pregunta": "dominar / controlar / manejar muy bien\nElla ha estudiado sueco durante dos años y ahora domina el idioma mucho mejor que antes.",
+            "respuesta": "Hon har studerat svenska i två år och behärskar språket mycket bättre nu än tidigare.",
+            "aciertos": 1,
+            "fallos": 4,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "Svenska"
+        },
+        {
+            "pregunta": "cambiar de enfoque / cambiar la atención hacia otra cosa\nCuando noté que la discusión no llevaba a ningún lado, decidí cambiar el enfoque hacia soluciones en lugar de problemas.",
+            "respuesta": "När jag märkte att diskussionen inte ledde någonstans, bestämde jag mig för att skifta fokus till lösningar istället för problem.",
+            "aciertos": 3,
             "fallos": 0,
             "idioma": "sv",
             "modo": "idioma",
-            "carpeta": "General",
-            "imagen": "assets\\images\\Screenshot 2025-09-24 094025_1765836019471.png"
+            "carpeta": "Svenska"
         },
         {
-            "pregunta": "y",
-            "respuesta": "si",
-            "aciertos": 0,
+            "pregunta": "particularmente relevante / especialmente relevante\nEsta información es especialmente relevante para nosotros porque debemos tomar una decisión importante mañana.",
+            "respuesta": "Den här informationen är särskilt relevant för oss eftersom vi ska fatta ett viktigt beslut imorgon.",
+            "aciertos": 4,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "idioma",
+            "carpeta": "Svenska"
+        },
+        {
+            "pregunta": "esforzarse / luchar por / aspirar a algo\nDebemos seguir esforzándonos por mejorar, incluso cuando el proceso se siente lento y desafiante.",
+            "respuesta": "Vi måste fortsätta sträva efter förbättring, även när processen känns långsam och utmanande.",
+            "aciertos": 5,
             "fallos": 0,
             "idioma": "sv",
             "modo": "idioma",
-            "carpeta": "General",
-            "imagen": "assets/images/Skärmbild 2025-07-30 020344_1765842089256.png"
+            "carpeta": "Svenska"
         },
         {
-            "pregunta": "e",
-            "respuesta": "e",
-            "aciertos": 0,
-            "fallos": 0,
+            "pregunta": "dedicar tiempo / reservar tiempo para algo\nSiempre intento dedicar tiempo cada noche para estudiar, aunque haya tenido un día estresante.",
+            "respuesta": "Jag försöker alltid avsätta tid varje kväll för att studera, även om jag har haft en stressig dag.",
+            "aciertos": 3,
+            "fallos": 2,
             "idioma": "sv",
             "modo": "idioma",
-            "carpeta": "General",
-            "imagen": "assets/images/Skärmbild 2025-08-10 070052_1765842384991.png"
+            "carpeta": "Svenska"
         },
         {
-            "pregunta": "bgggg",
-            "respuesta": "kkk",
-            "aciertos": 0,
-            "fallos": 0,
+            "pregunta": "la televisión encendida\nSalí de la casa sin darme cuenta de que la televisión aún estaba encendida en la sala.",
+            "respuesta": "Jag lämnade huset utan att märka att tvn fortfarande var påslagen i vardagsrummet.",
+            "aciertos": 4,
+            "fallos": 1,
             "idioma": "sv",
             "modo": "idioma",
-            "carpeta": "General",
-            "imagen": ""
-        },
-        {
-            "pregunta": "test web",
-            "respuesta": "ok",
-            "aciertos": 0,
-            "fallos": 0,
-            "idioma": "sv",
-            "modo": "idioma",
-            "carpeta": "General",
-            "imagen": ""
-        },
-        {
-            "pregunta": "ya",
-            "respuesta": "porfa",
-            "aciertos": 0,
-            "fallos": 0,
-            "idioma": "sv",
-            "modo": "idioma",
-            "carpeta": "General",
-            "imagen": "assets/images/Skärmbild 2025-12-12 211822_1765843837791.png"
-        },
-        {
-            "pregunta": "ppp",
-            "respuesta": "aaa",
-            "aciertos": 0,
-            "fallos": 0,
-            "idioma": "sv",
-            "modo": "idioma",
-            "carpeta": "General",
-            "imagen": "assets/images/Skärmbild 2025-12-03 200252_1765844634448.png"
+            "carpeta": "Svenska"
         }
     ],
     "carpetas": [
         "General",
-        "Palabras1"
+        "Svenska"
     ],
     "stats": {
-        "sessions": []
+        "sessions": [
+            {
+                "timestamp": 1765584151,
+                "idioma": "sv",
+                "modo": "idioma",
+                "carpeta": "Svenska",
+                "preguntas": 10,
+                "correctas": 5,
+                "incorrectas": 4,
+                "porcentaje": 50.0,
+                "errores_unicos": 3,
+                "duracion_seg": 888
+            },
+            {
+                "timestamp": 1765584196,
+                "idioma": "sv",
+                "modo": "idioma",
+                "carpeta": "Svenska",
+                "preguntas": 1,
+                "correctas": 0,
+                "incorrectas": 0,
+                "porcentaje": 0.0,
+                "errores_unicos": 0,
+                "duracion_seg": 9
+            },
+            {
+                "timestamp": 1765584874,
+                "idioma": "sv",
+                "modo": "idioma",
+                "carpeta": "Svenska",
+                "preguntas": 2,
+                "correctas": 1,
+                "incorrectas": 0,
+                "porcentaje": 50.0,
+                "errores_unicos": 0,
+                "duracion_seg": 201
+            },
+            {
+                "timestamp": 1765586366,
+                "idioma": "sv",
+                "modo": "idioma",
+                "carpeta": "Svenska",
+                "preguntas": 21,
+                "correctas": 19,
+                "incorrectas": 1,
+                "porcentaje": 90.5,
+                "errores_unicos": 1,
+                "duracion_seg": 1334
+            },
+            {
+                "timestamp": 1765586492,
+                "idioma": "sv",
+                "modo": "idioma",
+                "carpeta": "Svenska",
+                "preguntas": 2,
+                "correctas": 1,
+                "incorrectas": 0,
+                "porcentaje": 50.0,
+                "errores_unicos": 0,
+                "duracion_seg": 105
+            }
+        ]
     }
 }
