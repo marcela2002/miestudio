@@ -113,8 +113,8 @@
         {
             "pregunta": "Qué hace un switch?",
             "respuesta": "Un switch conecta dispositivos que están en la misma red local. Aprende que dispositivo esta conectado a cada puerto usando direcciones MAC y envía los datos solo al puerto correcto. Trabaja en Layer 2.",
-            "aciertos": 1,
-            "fallos": 1,
+            "aciertos": 5,
+            "fallos": 2,
             "idioma": "sv",
             "modo": "general",
             "carpeta": "Nätverk",
@@ -172,9 +172,9 @@
         },
         {
             "pregunta": "Cómo sabe una PC si el destino está en su misma red o no?",
-            "respuesta": "Comparando la IP y mascara. Si la parte de red es igual esta en la misma LAN. Esto decide si manda ARP para la PC destino o manda ARP para el gateway. Porque si el destino no esta en mi red, yo no busco su MAC, busco la MAC del gateway.",
+            "respuesta": "La PC compara la IP destino con su IP y máscara. Si están en la misma red, envía ARP para obtener la MAC del destino. Si no están en la misma red, envía ARP para obtener la MAC del gateway.",
             "aciertos": 1,
-            "fallos": 2,
+            "fallos": 3,
             "idioma": "sv",
             "modo": "general",
             "carpeta": "Nätverk",
