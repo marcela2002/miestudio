@@ -289,12 +289,114 @@
             "modo": "general",
             "carpeta": "Nätverk",
             "imagen": ""
+        },
+        {
+            "pregunta": "Que es una red?",
+            "respuesta": "Una red es cuando varios dispositivos estan conectados y pueden enviarse informacion entre si como mensajes, archivos o datos. Para que esto funcione todos deben seguir las mismas reglas de comunicacion.",
+            "aciertos": 1,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "Ahorita",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Qué diferencia hay entre LAN y WAN?",
+            "respuesta": "Una LAN es una red pequena y local, por ejemplo en una casa o una escuela.\nUna WAN conecta muchas LANs y cubre distancias grandes como internet.",
+            "aciertos": 2,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "Ahorita",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Que hace un switch?layer?",
+            "respuesta": "Un switch conecta dispositivos que están en la misma red local. Aprende que dispositivo esta conectado a cada puerto usando direcciones MAC y envía los datos solo al puerto correcto. Trabaja en Layer 2.",
+            "aciertos": 2,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "Ahorita",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Que hace un router?Layer?",
+            "respuesta": "Un router conecta redes diferentes. Decide a que red enviar los datos usando direcciones IP y actua como una puerta de salida hacia otras redes(gateway). Trabaja en Layer 3.",
+            "aciertos": 1,
+            "fallos": 2,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "Ahorita",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Para qué sirve una dirección IP? Que layer?",
+            "respuesta": "Una direccion IP identifica a un dispositivo dentro de una red y permite saber a donde deben enviarse los datos, parecido a una direccion de casa. Las direcciones IP pertenecen a Layer 3.",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "Ahorita",
+            "imagen": ""
+        },
+        {
+            "pregunta": "SSH",
+            "respuesta": "ip domain-name example.com\ncrypto key generate rsa\n1024\nip ssh version 2\nline vty 0 15\ntransport input ssh\nlogin local\nexit\nusername marce password cisco",
+            "aciertos": 0,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 1",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Testa SSH",
+            "respuesta": "ssh -l marce [ip]",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 1",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Router ISP con su ruta de retorno a toda la red interna",
+            "respuesta": "int\nip add [ip mascara]\nno shut\nexit\nip route [redinterna.0 mascara nexthop]",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 1",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Router conectado a ISP(default route a ISP) y conectado 2 routers mas(conexiones enlasados, länknät)",
+            "respuesta": "int \nip add [ip mascara]\nno shut\nexit\nint\nip add [ip mascara]\nno shut\nexit\nint\nip add [ip mascara]\nno shut\nexit\nip route 0.0.0.0 0.0.0.0 [ipisp]\nrouter ospf 1\nnetwork [red wildcard] area 0\nnetwork [red wildcard] area 0\ndefault-information originate",
+            "aciertos": 0,
+            "fallos": 1,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 1",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Router-on-a-stick",
+            "respuesta": "int\nno shut\nexit\nint [ .vlannative]\nencapsulation dot1q [vlannative] native\nip add [gwvlannative mascara]\nexit\nint [ .vlan]\nencapsulation dot1q [vlan]\nip add [gwvlan mascara]\nexit\nint [ .vlan]\nencapsulation dot1q [vlan]\nip add [gwvlan mascara]\nexit",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 1",
+            "imagen": ""
         }
     ],
     "carpetas": [
         "General",
         "Svenska",
-        "Nätverk"
+        "Nätverk",
+        "Ahorita",
+        "config 1"
     ],
     "stats": {
         "sessions": [
