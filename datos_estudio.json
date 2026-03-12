@@ -343,7 +343,7 @@
         {
             "pregunta": "SSH",
             "respuesta": "ip domain-name example.com\ncrypto key generate rsa\n1024\nip ssh version 2\nline vty 0 15\ntransport input ssh\nlogin local\nexit\nusername marce password cisco",
-            "aciertos": 0,
+            "aciertos": 4,
             "fallos": 1,
             "idioma": "sv",
             "modo": "general",
@@ -353,7 +353,7 @@
         {
             "pregunta": "Testa SSH",
             "respuesta": "ssh -l marce [ip]",
-            "aciertos": 0,
+            "aciertos": 5,
             "fallos": 0,
             "idioma": "sv",
             "modo": "general",
@@ -363,7 +363,7 @@
         {
             "pregunta": "Router ISP con su ruta de retorno a toda la red interna",
             "respuesta": "int\nip add [ip mascara]\nno shut\nexit\nip route [redinterna.0 mascara nexthop]",
-            "aciertos": 0,
+            "aciertos": 5,
             "fallos": 0,
             "idioma": "sv",
             "modo": "general",
@@ -373,7 +373,17 @@
         {
             "pregunta": "Router conectado a ISP(default route a ISP) y conectado 2 routers mas(conexiones enlasados, länknät)",
             "respuesta": "int \nip add [ip mascara]\nno shut\nexit\nint\nip add [ip mascara]\nno shut\nexit\nint\nip add [ip mascara]\nno shut\nexit\nip route 0.0.0.0 0.0.0.0 [ipisp]\nrouter ospf 1\nnetwork [red wildcard] area 0\nnetwork [red wildcard] area 0\ndefault-information originate",
-            "aciertos": 0,
+            "aciertos": 6,
+            "fallos": 2,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 1",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Router-on-a-stick, 1 native vlan y 2 lan (sin ospf)",
+            "respuesta": "int\nno shut\nexit\nint [ .vlannative]\nencapsulation dot1q [vlannative] native\nip add [gwvlannative mascara]\nexit\nint [ .vlan]\nencapsulation dot1q [vlan]\nip add [gwvlan mascara]\nexit\nint [ .vlan]\nencapsulation dot1q [vlan]\nip add [gwvlan mascara]\nexit",
+            "aciertos": 3,
             "fallos": 1,
             "idioma": "sv",
             "modo": "general",
@@ -381,13 +391,43 @@
             "imagen": ""
         },
         {
-            "pregunta": "Router-on-a-stick",
-            "respuesta": "int\nno shut\nexit\nint [ .vlannative]\nencapsulation dot1q [vlannative] native\nip add [gwvlannative mascara]\nexit\nint [ .vlan]\nencapsulation dot1q [vlan]\nip add [gwvlan mascara]\nexit\nint [ .vlan]\nencapsulation dot1q [vlan]\nip add [gwvlan mascara]\nexit",
+            "pregunta": "Switch (native vlan + 1 vlan + SVI mgmt (management))",
+            "respuesta": "vlan \nname\nvlan \nname\nint\nswitchport mode access\nswitchport access vlan [vlan]\nspanning-tree portfast\nexit\nint [puertotrunk]\nswitchport mode trunk\nswitchport nonegotiate\nswitchport trunk native vlan [vlannative]\nswitchport trunk allowed vlan [ , ]\nexit\nint vlan [vlannative]\nip add [ip mascara]\nno shut\nexit\nip default-gateway [gwnative]",
             "aciertos": 0,
             "fallos": 0,
             "idioma": "sv",
             "modo": "general",
-            "carpeta": "config 1",
+            "carpeta": "config 2",
+            "imagen": ""
+        },
+        {
+            "pregunta": "DHCP para una vlan",
+            "respuesta": "ip dhcp excluded-address [inicio fin]\nip dhcp pool [nombre]\nnetwork [red mascara]\ndefault-router [gwvlan]\ndns-server [dns]",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 2",
+            "imagen": ""
+        },
+        {
+            "pregunta": "ACL(extended) para bloquear una red hacia otras",
+            "respuesta": "access-list 100 permit icmp [redorigen wildcard] [reddestino wildcard] echo-reply\naccess-list 100 permit icmp [redorigen wildcard] [reddestino wildcard] echo-reply\naccess-list 100 deny ip [redorigen wildcard] [reddestino wildcard]\naccess-list 100 deny ip [redorigen wildcard] [reddestino wildcard]\naccess-list 100 permit ip any any",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 2",
+            "imagen": ""
+        },
+        {
+            "pregunta": "Aplicar la acl 100 a la interfaz",
+            "respuesta": "int [subinterfazvlanorigen]\nip access-group 100 in",
+            "aciertos": 0,
+            "fallos": 0,
+            "idioma": "sv",
+            "modo": "general",
+            "carpeta": "config 2",
             "imagen": ""
         }
     ],
@@ -396,7 +436,8 @@
         "Svenska",
         "Nätverk",
         "Ahorita",
-        "config 1"
+        "config 1",
+        "config 2"
     ],
     "stats": {
         "sessions": [
